@@ -39,11 +39,14 @@ function onAddTodo() {
     createAndAppendTodo(newTodo);
     userInputElement.value = "";
 }
+addTodoButton.addEventListener("click", onAddTodo);
 
-addTodoButton.onclick = function() {
-    onAddTodo();
-};
-
+let todoUserInput = document.getElementById("todoUserInput");
+todoUserInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        onAddTodo();
+    }
+});
 function onTodoStatusChange(checkboxId, labelId, todoId) {
     let checkboxElement = document.getElementById(checkboxId);
     let labelElement = document.getElementById(labelId);
@@ -123,7 +126,7 @@ function createAndAppendTodo(todo) {
     labelContainer.appendChild(deleteIconContainer);
 
     let deleteIcon = document.createElement("i");
-    deleteIcon.classList.add("far", "fa-trash-alt", "delete-icon");
+    deleteIcon.classList.add("fa-solid","fa-trash-can","delete-icon");
 
     deleteIcon.onclick = function() {
         onDeleteTodo(todoId);

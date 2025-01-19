@@ -108,10 +108,15 @@
 .delete-icon-container {
     text-align: right;
     width: 18%;
+    
 }
 
 .delete-icon {
     padding: 15px;
+    display:flex;
+    flex-direction: row;
+    justify-content: right;
+    padding-right: 10px;
 }
 
 .checked {
